@@ -1,0 +1,5 @@
+1#Malema#Julious#Economic Freedom Fighers#EFF#assets/images/EFFCand.jpg#assets/images/EFFLogo.jpg
+2#Zuma#Jacob#Umkhonto Wesizwe#MK#assets/images/MKCand.jpg#assets/images/MKLogo.jpg
+3#Hlabisa#Velenkosini#Inkatha Freedom Party#IFP#assets/images/IFPCand.jpg#assets/images/IFPLogo.jpg
+4#Cyril#Ramaphosa#African National Congress#ANC#assets/images/ANCCand.jpg#assets/images/ANCLogo.jpg
+5#Steenhuisen#John#Democratic Alliance#DA#assets/images/DACand.jpg#assetsimages/DALogo.jpg
