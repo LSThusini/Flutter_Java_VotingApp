@@ -46,7 +46,7 @@ public class ClientHandler implements Runnable, Services {
 				
 				if(requestLine.startsWith("LOGIN")) {
 					
-					System.out.println("Command :" + tokens.nextToken());
+					String command =tokens.nextToken(); 
 					String voterID = tokens.nextToken();
 					
 					if(this.AuthenticateVoter(voterID)) {
@@ -66,7 +66,8 @@ public class ClientHandler implements Runnable, Services {
 				}else if(requestLine.startsWith("VOTE")) {
 					//Handle the cast by getting the id of the candidate being voted for
 					//The voter will be the person logged in.
-					System.out.println("Command :" + tokens.nextToken());
+					String command =tokens.nextToken();
+					
 					if(this.castVote(Integer.parseInt(tokens.nextToken()))) {
 						this.sendResponse("VOTE_SUCCESS");
 					}else {
@@ -76,7 +77,7 @@ public class ClientHandler implements Runnable, Services {
 				}
 				else if(requestLine.startsWith("RESULTS")) {
 					//Send the results to the client application.
-					System.out.println(tokens.nextToken());
+					String command =tokens.nextToken();
 					this.sendResponse(this.getResults());
 				}
 		}

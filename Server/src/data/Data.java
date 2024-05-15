@@ -43,6 +43,7 @@ public class Data {
 	}
 	
 	public List<VoteCast> getVoteCast(){
+		System.out.println(this.blockChain.toString());
 		return this.votesBoard;
 	}
 	

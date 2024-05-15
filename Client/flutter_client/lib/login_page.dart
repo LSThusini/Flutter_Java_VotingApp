@@ -105,16 +105,19 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              "assets/images/IECLogo.gif",
-              height: 130,
+            Text(
+              "I-VOTE",
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const Text(
-              "Welcome to IEC",
+              "Welcome to I-Vote",
               style: TextStyle(
                 color: Color.fromARGB(255, 6, 94, 165),
-                fontWeight: FontWeight.bold,
-                fontSize: 35,
+                fontSize: 30,
               ),
             ),
             const SizedBox(height: 80),
