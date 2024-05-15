@@ -1,66 +1,19 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_client/candidate_card.dart';
-
+import 'package:flutter_client/connection/handler.dart';
 import 'package:flutter_client/data/CandidateModel.dart';
+import 'package:flutter_client/data/candidates_data.dart';
 
 class CandidatesList extends StatefulWidget {
-  const CandidatesList({super.key});
+  final ServerConnection serverConnection;
+  const CandidatesList({super.key, required this.serverConnection});
 
   @override
   State<CandidatesList> createState() => _CandidatesListState();
 }
 
 class _CandidatesListState extends State<CandidatesList> {
-  Future<String> loadAsset(String path) async {
-    return await rootBundle.loadString(path);
-  }
-
-  List<CandidateModel> parseCandidates(String data) {
-    List<CandidateModel> candidates = [];
-
-    // Split the data into lines
-    List<String> lines = data.split('\n');
-
-    // Iterate over each line
-    for (String line in lines) {
-      // Split the line into fields using '#' as the delimiter
-
-      List<String> fields = line.split('#');
-
-      // Extract individual pieces of information
-      int index = int.parse(fields[0]);
-      String lastName = fields[1];
-      String firstName = fields[2];
-      String partyName = fields[3];
-      String partyAbbreviation = fields[4];
-      String candidateImage = fields[5];
-      String logoImage = fields[6];
-
-      // Create a Candidate object and add it to the list
-      CandidateModel candidate = CandidateModel(
-        index: index,
-        lastName: lastName,
-        firstName: firstName,
-        partyName: partyName,
-        partyAbbreviation: partyAbbreviation,
-        candidateImage: candidateImage,
-        logoImage: logoImage,
-      );
-
-      candidates.add(candidate);
-    }
-
-    return candidates;
-  }
-
-  Future<List<CandidateModel>> readCandidatesFromFile(String filePath) async {
-    String data = await loadAsset(filePath);
-    return parseCandidates(data);
-  }
-
   @override
   void initState() {
     super.initState();
@@ -69,6 +22,16 @@ class _CandidatesListState extends State<CandidatesList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.table_view_rounded),
+          label: '',
+        )
+      ]),
       appBar: AppBar(
         title: Text(
           "National Candidates",
@@ -88,7 +51,7 @@ class _CandidatesListState extends State<CandidatesList> {
               child: CircularProgressIndicator(), // Show a loading indicator
             );
           } else if (snapshot.hasError) {
-            return Center(
+            return const Center(
               child: Text('Error loading candidates'), // Show an error message
             );
           } else {
@@ -98,11 +61,12 @@ class _CandidatesListState extends State<CandidatesList> {
               itemBuilder: (context, index) {
                 final cand = candidates[index];
                 return CandidateCard(
-                  name:
-                      "${cand.firstName} ${cand.lastName}", // Fix typo in last name
-                  party: "${cand.partyName} (${cand.partyAbbreviation})",
-                  imageUrl: cand.candidateImage,
-                );
+                    serverConnection: widget.serverConnection,
+                    name:
+                        "${cand.firstName} ${cand.lastName}", // Fix typo in last name
+                    party: "${cand.partyName} (${cand.partyAbbreviation})",
+                    imageUrl: cand.candidateImage,
+                    id: cand.index);
               },
             );
           }

@@ -15,7 +15,7 @@ public class Server {
 
 	private static boolean isRunning = false;
 	private static ServerSocket server;
-	private static final int PORT = 9876;
+	private static final int PORT = 9999;
 	private Data data;
 	
 	/**
@@ -47,14 +47,12 @@ public class Server {
 				ClientHandler client1 = new ClientHandler(server.accept(), this.data);
 				Thread newthread = new Thread(client1);
 				newthread.start();
+				System.out.println("New Client");
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	
-
 	/**
 	 * @param args
 	 */
