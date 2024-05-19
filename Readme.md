@@ -21,7 +21,7 @@ Our system aims to restore trust in the electoral process by guaranteeing integr
 The system relies on pre-existing data for registered voters, stored as hashed identity numbers. Additionally, it maintains a list of contestants with relevant information for display on the user interface.
 
 ## Links
-- [Video](https://github.com/LSThusini/Flutter_Java_VotingApp.git)
+- [Video](https://youtu.be/YajdbITf1Xg)
 - [gitRepository](https://github.com/LSThusini/Flutter_Java_VotingApp.git)
 
 
