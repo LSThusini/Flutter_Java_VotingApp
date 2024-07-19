@@ -20,6 +20,14 @@ My system aims to restore trust in the electoral process by guaranteeing integri
 ## Logic and Complexity
 The system relies on pre-existing data for registered voters, stored as hashed identity numbers. Additionally, it maintains a list of contestants with relevant information for display on the user interface.
 
+## Screenshots
+<img src="https://github.com/user-attachments/assets/deb68eba-e8a4-476b-a060-40927596d5c8" alt="Screenshot" width="200"> <img src="https://github.com/user-attachments/assets/d0f2c46e-b408-4c85-bb3a-2fdb9692aa38" alt="Screenshot" width="200"> <img src="https://github.com/user-attachments/assets/841f5653-9a8f-405e-ba72-5fe23eb7343f" alt="Screenshot" width="200"> <img src="https://github.com/user-attachments/assets/4d1f0869-1493-4afc-aea2-9a3b8e946297" alt="Screenshot" width="200">
+
+
+
+
+
+
 ## Links
 - [Video](https://youtu.be/YajdbITf1Xg)
 - [gitRepository](https://github.com/LSThusini/Flutter_Java_VotingApp.git)
